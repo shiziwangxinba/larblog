@@ -22,3 +22,6 @@ Route::post('/get_token','HomeController@get_token');
 Route::get('topic/create','TopicController@create');
 Route::post('topic/create','TopicController@store');
 Route::get('topic/{topic}','TopicController@show');
+//reply
+Route::post('reply/create','ReplyController@store');
+Route::get('reply/{reply}','ReplyController@show');

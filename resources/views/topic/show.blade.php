@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+	@include('layouts.has')
 	<div class="center-block" style="max-width:760px;">
 		<div class="text-left"><h3>{{$topic->title}}</h3></div>
 		<p class="text-info">{{$topic->summary}}</p>
@@ -12,32 +13,66 @@
 	{!! $topic->content !!}
 </div>
 </div>
+@foreach($reply as $list)
 <div style="margin:12px;"></div>
 <div class="panel panel-default">
 		<div class="panel-heading" style="background:#fff">
-			{{$topic->username}}&nbsp;&nbsp;回覆於{{$topic->created_at}}&nbsp;&nbsp;<span class="pull-right" style="font-weight:bold" Onclick="quotereply(1230);">No.12038</span>
+			{{$list->username}}&nbsp;&nbsp;回覆於{{$list->created_at}}&nbsp;&nbsp;<span class="pull-right" style="font-weight:bold" Onclick="quotereply({{$list->id}});">No.{{$list->id}}</span>
 		</div>
 		<div class="panel-body">
-			王陌回到家门口，摘下手套，从公文包里拿出钥匙开了门。<br>
-　　进屋后，他在玄关换好鞋，脱掉大衣挂在衣钩上，公文包也放在一旁，稍作停顿，循着声音走进了厨房。厨房里熟悉的身影忙碌着，一会儿拿起刀处理食材，一会儿又掀开锅盖往里面添汤加料，王陌倚靠在门旁盯着对方看，一言不发。
+			@if($list->is_delete == 1)
+			<font color=red>本帖已經被管理員屏蔽,可發信申訴</font>
+			@else
+			@if($list->quotecontent)
+			<div class="bg-info" style="font-size:13px;padding:10px;margin-bottom:6px;">{!! str_limit($list->quotecontent,'100') !!}</div>
+			@endif
+			{!! $list->content !!}
+			@endif
 		</div>
 	</div>
-	<div class="form-group" style="max-width:260px;margin-top:120px;">
+@endforeach
+<div align="center">{{$reply->links()}}</div>
+	<form action="/reply/create" method="post" style="margin-top:60px;">
+	<!--hidden-->
+	{{ csrf_field() }}
+	<input type="hidden" value="{{$topic->id}}" name="topic_id" />
+		@if(count($errors) > 0)
+		<div class="alert alert-danger">
+			{{$errors->first()}}
+		</div>
+		@endif
+	<div class="form-group" style="max-width:260px;">
 		<label>暱稱</label>
-		<input type="text" name="username" class="form-control">
+		<input type="text" name="username" class="form-control" value="= =" placeholder="本站不紀錄馬甲">
 	</div>
 	<div class="form-group">
 		<label>內容</label>
-		<textarea class="form-control" name="content" rows="6"></textarea>
+		<textarea class="form-control" name="content" rows="6" placeholder="回覆內容請大於五個漢字^^">{{old('content')}}</textarea>
+	</div>
+	<div id="hidden">
 	</div>
 	<div class="form-group">
 		<button class="btn btn-lg btn-primary" type="submit">提交</button>
 	</div>
+</form>
 	</div>
 </div>
 <script>
 	function quotereply(id){
-		alert(id);
+		$.ajax({
+			'url' :'/reply/'+id,
+			'type' :'get',
+			success:function(data){
+				if(data.code == 200)
+				{
+					$("#hidden").html("<input type='hidden' name='quotereply' value='"+data.data+"' />");
+				}else
+				{
+					alert('錯誤返回:'+data.message);
+				}
+				
+			}
+		});
 	}
 	</script>
 @endsection

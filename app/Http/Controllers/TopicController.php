@@ -56,7 +56,8 @@ class TopicController extends Controller
             return redirect('/')->with('status','info')->with('message','本帖被管理員限制訪問,請發信申請解除');
         }else
         {
-            return view('topic.show')->with('topic',$topic);
+            $reply = Topic::find($topic->id)->comments()->paginate(40);
+            return view('topic.show')->with('topic',$topic)->with('reply',$reply);
         }
     }
 }
