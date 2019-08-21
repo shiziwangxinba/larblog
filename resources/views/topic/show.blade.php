@@ -66,6 +66,7 @@
 				if(data.code == 200)
 				{
 					$("#hidden").html("<input type='hidden' name='quotereply' value='"+data.data+"' />");
+					 window.scrollTo(0, document.documentElement.scrollHeight-document.documentElement.clientHeight);
 				}else
 				{
 					alert('錯誤返回:'+data.message);
