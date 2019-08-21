@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
 	@include('layouts.has')
-	<div class="alert alert-danger"><i class="glyphicon glyphicon-info-sign"></i>若有需要聯絡管理者,請透過<a href="javascript:;" class="alert-link">&nbsp;ldnmb@protonmail.com&nbsp;</a>向我們發信</div>
+	<div class="alert alert-danger"><i class="glyphicon glyphicon-info-sign"></i>若有需要聯絡管理者,請透過<a href="javascript:;" class="alert-link">&nbsp;{{config('app.email')}}&nbsp;</a>向我們發信</div>
 	<div class="rows">
 		<div class="col-md-3 col-lg-3">
 			<button class="btn btn-block btn-info" Onclick="window.location.href='/topic/create'">發新話題</button>
