@@ -34,7 +34,7 @@ class ReplyController extends Controller
     				$reply->username = e($request->input('username'));
     				if($request->input('quotereply'))
     				{
-    					$reply->quotecontent = nl2br($request->input('quotereply'));
+    					$reply->quotecontent = $request->input('quotereply');
     				}else
     				{
     					$reply->quotecontent = '';

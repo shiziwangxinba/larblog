@@ -49,7 +49,7 @@
 		<label>內容</label>
 		<textarea class="form-control" name="content" rows="6" placeholder="回覆內容請大於五個漢字^^">{{old('content')}}</textarea>
 	</div>
-	<div id="hidden">
+	<div id="hidden" class="form-group">
 	</div>
 	<div class="form-group">
 		<button class="btn btn-lg btn-primary" type="submit">提交</button>
@@ -65,8 +65,9 @@
 			success:function(data){
 				if(data.code == 200)
 				{
-					$("#hidden").html("<input type='hidden' name='quotereply' value='"+data.data+"' />");
+					$("#hidden").html("<label>引用内容</label><textarea class='form-control' rows='4' name='quotereply'>"+data.data+"</textarea>");
 					 window.scrollTo(0, document.documentElement.scrollHeight-document.documentElement.clientHeight);
+
 				}else
 				{
 					alert('錯誤返回:'+data.message);
