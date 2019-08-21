@@ -7,9 +7,12 @@
 		<div class="col-md-3 col-lg-3">
 			<button class="btn btn-block btn-info" Onclick="window.location.href='/topic/create'">發新話題</button>
 			<div class="panel panel-info" style="margin-top:7px;margin-bottom:1em;">
-				<div class="panel-heading">
+				<div class="panel-heading" role="tab" id="bbsrule">
+					<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
 					論壇規則
+				</a>
 				</div>
+				  <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="bbsrule">
 				<div class="panel-body">
 					<h3>在發帖前請閱讀</h3>
 					<p>本站話題敏感,您不得將本站地址發布到任何公開網路社群,否則我們將有可能終止對您的服務。</p>
@@ -18,6 +21,7 @@
 					<p>不得在本站公開發布您的任何私人訊息，為了您的安全著想</p>
 					<p class="text-danger">另外,本站沒有管理員會公開在帖子下面留言,一般情況下我們都將通過數據庫管理工具來對帖子/用戶進行管理,一切使用管理員馬甲的帖子都是虛假的</p>
 				</div>
+			</div>
 			</div>
 		</div>
 		<div class="col-md-9 col-lg-9">
