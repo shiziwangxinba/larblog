@@ -14,13 +14,16 @@
 				</div>
 				  <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="bbsrule">
 				<div class="panel-body">
-					<h3>在發帖前請閱讀</h3>
-					<p>本站話題敏感,您不得將本站地址發布到任何公開網路社群,否則我們將有可能終止對您的服務。</p>
-					<p>為了安全著想,本站開閉時間由站方決定,另外我們會週期性地清理帖子以保證發帖者的安全.</p>
-					<p>不得在本站發布任何QQ群或者其他廣告連結，尤其是淘寶網</p>
-					<p>不得在本站公開發布您的任何私人訊息，為了您的安全著想</p>
-					<p class="text-danger">另外,本站沒有管理員會公開在帖子下面留言,一般情況下我們都將通過數據庫管理工具來對帖子/用戶進行管理,一切使用管理員馬甲的帖子都是虛假的</p>
+					請仔細閱讀論壇規則後再發布新話題,否則我們將可能刪除您的貼子或者封禁您的帳號:)
 				</div>
+				<ul class="list-group">
+    <li class="list-group-item">本站<font color=red>只接受</font>時事政治/家長不宜的話題,其他帖子請移步另一個大家知道的論壇^^</li>
+    <li class="list-group-item">本站不得發布任何QQ群或者其他廣告連結</li>
+    <li class="list-group-item">不得在本站公開發布您的個人隱私訊息,為了您的安全著想</li>
+    <li class="list-group-item">本站沒有管理員會在帖子下面給予管理方面的回覆,有事請給我們發郵件</li>
+    <li class="list-group-item text-danger">不得外洩地址,否則我們會終止社區服務</li>
+     <li class="list-group-item">我們不保證您在這裡的數據<b class="text-info">永久存在</b>,同時本站的刪封標準由管理員掌控</li>
+  </ul>
 			</div>
 			</div>
 		</div>
