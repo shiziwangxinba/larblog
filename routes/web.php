@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'TopicController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/yanzheng/', 'HomeController@getcaptcha');
+Route::post('/get_token','HomeController@get_token');
+//topic
+Route::get('topic/create','TopicController@create');
+Route::post('topic/create','TopicController@store');
+Route::get('topic/{topic}','TopicController@show');
